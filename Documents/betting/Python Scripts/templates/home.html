@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask Tutorial</title>
+  </head>
+  	<h2>Championship</h2>
+    <body>
+      {% for table in tables %}
+            {{ table|safe }}
+      {% endfor %}
+</body>
+</html>
