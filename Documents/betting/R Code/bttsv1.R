@@ -150,8 +150,8 @@ train_h2o <- as.h2o(md_train)
 test_h2o <- as.h2o(md_test)
 
 btts <- h2o.automl(x = x, y = y, training_frame = train_h2o,
-                  nfolds = 5, stopping_metric = "AUC", max_runtime_secs = ((60*60)*6),
-                  seed = 1234)
+                  nfolds = 5, stopping_metric = "logloss", max_runtime_secs = ((60*60)*7),
+                  seed = 1235)
 
 btts@leaderboard
 btts@leader

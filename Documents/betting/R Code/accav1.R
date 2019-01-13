@@ -172,12 +172,12 @@ split <- createDataPartition(df$FTR, p = 0.7, list = F)
 md_train <- df[split, ]
 md_test <- df[-split, ]
 
-h2o.init(max_mem_size = "200G", nthreads = 2)
+h2o.init(max_mem_size = "500G", nthreads = -1)
 train_h2o <- as.h2o(md_train)
 test_h2o <- as.h2o(md_test)
 
 aml <- h2o.automl(x = x, y = y, training_frame = train_h2o,
-                  nfolds = 5, max_runtime_secs = ((60*60)*6),
+                  nfolds = 5, max_runtime_secs = ((60*60)*9),
                   seed = 1234)
 
 

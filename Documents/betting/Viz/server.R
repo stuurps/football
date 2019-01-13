@@ -5,7 +5,7 @@ library(DT)
 rm(list = ls())
 setwd("~/Documents/betting")
 md <- fread("prediction.csv")
-md$BTTS_PREDICT <- ifelse(md$BTTS_PREDICT > 0.5,1,0)
+md$BTTS_PREDICT <- ifelse(md$BTTS_1 > 0.5,1,0)
 
 #Build confidence feature
 md$Confidence1 <- md$PROB - md$A
@@ -47,10 +47,12 @@ l2 <- subset(md, Div == "E3")
 ch$Div <- NULL
 l1$Div <- NULL
 l2$Div <- NULL
+md$Div <- NULL
 
 ch <- datatable(ch,options = list(pageLength = 15))
 l1 <- datatable(l1,options = list(pageLength = 15))
 l2 <- datatable(l2,options = list(pageLength = 15))
+md <- datatable(md,options = list(pageLength = nrow(md)))
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -58,5 +60,6 @@ shinyServer(function(input, output) {
   output$CH <- DT::renderDataTable({ch})
   output$L1 <- DT::renderDataTable({l1})
   output$L2 <- DT::renderDataTable({l2})
+  output$All <- DT::renderDataTable({md})
   
 })

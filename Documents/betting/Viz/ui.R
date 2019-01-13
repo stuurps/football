@@ -9,7 +9,7 @@ shinyUI(fluidPage(
               tabPanel("Championship", DT::dataTableOutput("CH")),
               tabPanel("League 1", DT::dataTableOutput("L1")),
               tabPanel("League 2", DT::dataTableOutput("L2")),
-              tabPanel("Optimised", DT::dataTableOutput("Op"))
+              tabPanel("All", DT::dataTableOutput("All"))
     )
   )
 )

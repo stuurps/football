@@ -163,7 +163,7 @@ temp_f <- subset(temp_f, select = -c(Div,Date,HomeTeam,AwayTeam,FTHG,FTAG,FTR,HT
 
 fix <- merge(fix,temp_f, by = "ID" )
 
-pred <- h2o.mojo_predict_df(fix,"/Users/stuartbarker/Documents/betting/DeepLearning_grid_1_AutoML_20190103_204006_model_16.zip")
+pred <- h2o.mojo_predict_df(fix,"/Users/stuartbarker/Documents/betting/DeepLearning_grid_1_AutoML_20190111_073728_model_29.zip")
 
 table(pred$predict)
 
@@ -244,7 +244,7 @@ fix$RN <- NULL
 fix <- merge(fix,temp_f, by = "ID" )
 
 
-pred <- h2o.mojo_predict_df(fix,"/Users/stuartbarker/Documents/betting/GLM_grid_1_AutoML_20190103_231228_model_1.zip")
+pred <- h2o.mojo_predict_df(fix,"/Users/stuartbarker/Documents/betting/GLM_grid_1_AutoML_20190111_204454_model_1.zip")
 table(pred$predict)
 get
 fixv2 <- subset(fix, select = c(HomeTeam,AwayTeam, Date, Div))
